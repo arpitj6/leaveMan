@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 3px solid lightgrey;
+  justify-content: center;
+  align-items: center;
+  background: #eeedf4f1;
+  height: 555px;
+}
+.active-button {
+  background-color: #0086da;
+  color: white;
+  font-size: 16px;
+  line-height: 35px;
+  pointer-events: all;
+  min-width: 6rem;
+  max-width: fit-content;
+}
+.background {
+  height: 40vh;
+  width: 95vw;
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%; */
+}
+.example-spacer {
+  flex: 1 1 auto;
+}

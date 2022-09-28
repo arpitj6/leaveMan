@@ -1,0 +1,103 @@
+<div>
+  <p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon">
+        <mat-icon [matMenuTriggerFor]="topMenu">menu</mat-icon>
+      </button>
+      <span>Staff & Leave Management System</span>
+      <span class="example-spacer"></span>
+      Welcome {{ user
+      }}<mat-icon
+        [matMenuTriggerFor]="menu"
+        style="cursor: pointer"
+        (click)="$event.stopPropagation()"
+        >keyboard_arrow_down</mat-icon
+      >
+    </mat-toolbar>
+  </p>
+</div>
+<div>
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Dashboard">
+      <div class="dashboard">
+        <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+          Total Leaves: <span style="color: grey">10</span>
+        </div>
+        <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+          Approved :<span style="color: grey">5</span>
+        </div>
+        <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+          Rejected : <span style="color: grey">5</span>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Leave Management">
+      <div style="display: flex">
+        <!-- search box -->
+        <div style="justify-content: flex-start; padding-left: 10px">
+          <div class="search">
+            <input
+              [(ngModel)]="searchKey"
+              type="text"
+              style="width: 98%"
+              class="inputSearch"
+              size="35"
+              placeholder="Search Leaves based on reason or status"
+            />
+            <span>
+              <button matSuffix mat-icon-button style="right: 36px">
+                <mat-icon style="color: #8c9ba5; font-size: 20px"
+                  >search</mat-icon
+                >
+              </button>
+            </span>
+          </div>
+        </div>
+        <!-- aply for new button  -->
+        <div style="margin-left: auto">
+          <button class="active-button" mat-button (click)="apply('staff')">
+            Apply
+          </button>
+        </div>
+      </div>
+      <div class="list-view">
+        <div class="list-item">Sno.</div>
+        <div class="list-item">From_date</div>
+        <div class="list-item">To_date</div>
+        <div class="list-item">Reason</div>
+        <div class="list-item">Status</div>
+        <div class="list-item">Action</div>
+      </div>
+      <div
+        class="item-view"
+        *ngFor="let item of filteredLeaves | searchFilter: searchKey"
+      >
+        <div class="list-item">{{ item.sNo }}</div>
+        <div class="list-item">{{ item.from }}</div>
+        <div class="list-item">{{ item.to }}</div>
+        <div class="list-item">{{ item.reason }}</div>
+        <div class="list-item">{{ item.status }}</div>
+        <div
+          class="list-item"
+          style="cursor: pointer"
+          (click)="viewDetails('leave', item)"
+          matTooltip="view"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
+        </div>
+      </div>
+      <mat-paginator
+        [length]="leavesData.length"
+        [pageSize]="5"
+        (page)="pageEvent = $event; onPaginateChange($event)"
+      >
+      </mat-paginator>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<mat-menu #menu="matMenu">
+  <div mat-menu-item (click)="logOut()">Logout</div>
+</mat-menu>
+<mat-menu #topMenu="matMenu">
+  <div mat-menu-item (click)="logOut()">goBack</div>
+</mat-menu>

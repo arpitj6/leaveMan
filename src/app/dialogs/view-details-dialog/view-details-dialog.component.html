@@ -1,0 +1,76 @@
+<div class="df ai" style="padding-left: 16px; background-color: #f0f3f6">
+  <div>
+    {{
+      data.action == "leave"
+        ? "view Leaves"
+        : data.action == "member"
+        ? "view Staff"
+        : "delete Staff"
+    }}
+  </div>
+
+  <button
+    mat-icon-button
+    (click)="close()"
+    style="margin-left: auto"
+    tabindex="-1"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+<div class="main-container">
+  <div *ngIf="data?.action == 'leave'" class="card">
+    <div class="card-item">
+      <div style="width: 50%">from_date</div>
+      <div style="width: 50%">{{ data.data.from ? data.data.from : "NA" }}</div>
+    </div>
+    <div class="card-item">
+      <div style="width: 50%">to_date</div>
+      <div style="width: 50%">{{ data.data.to ? data.data.to : "NA" }}</div>
+    </div>
+    <div class="card-item">
+      <div style="width: 50%">Reason</div>
+      <div style="width: 50%">
+        {{ data.data.reason ? data.data.reason : "NA" }}
+      </div>
+    </div>
+    <div class="card-item">
+      <div style="width: 50%">Status</div>
+      <div style="width: 50%">
+        {{ data.data.status ? data.data.status : "NA" }}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="data.action == 'member'" class="card">
+    <div class="card-item">
+      <div style="width: 50%">Name</div>
+      <div style="width: 50%">{{ data.data.name ? data.data.name : "NA" }}</div>
+    </div>
+    <div class="card-item">
+      <div style="width: 50%">Username</div>
+      <div style="width: 50%">
+        {{ data.data.username ? data.data.username : "NA" }}
+      </div>
+    </div>
+    <div class="card-item">
+      <div style="width: 50%">Email</div>
+      <div style="width: 50%">
+        {{ data.data.email ? data.data.email : "NA" }}
+      </div>
+    </div>
+    <div class="card-item">
+      <div style="width: 50%">Mobile</div>
+      <div style="width: 50%">
+        {{ data.data.mobile ? data.data.mobile : "NA" }}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="data.action == 'delete'">
+    are you sure you want to delete {{ data.data.name }} ?
+  </div>
+</div>
+<div style="padding: 10px; justify-content: center; display: flex">
+  <button mat-button style="background: red; color: white" (click)="delete()">
+    Confirm
+  </button>
+</div>

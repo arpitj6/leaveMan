@@ -1,0 +1,80 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Staff & Leave Management System</span>
+  <span class="example-spacer"></span>
+  Welcome!
+</mat-toolbar>
+<div class="wrapper">
+  <h1 style="color: rgb(120, 71, 71); font-weight: 500; font-family: fangsong">
+    Log in
+  </h1>
+  <br />
+  <div>
+    <mat-icon style="margin-right: 15px" *ngIf="!username"
+      >check_circle_outline</mat-icon
+    >
+    <mat-icon style="margin-right: 15px" *ngIf="username"
+      >check_circle</mat-icon
+    >
+
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        type="texxt"
+        placeholder="enter username"
+        required
+        [(ngModel)]="username"
+      />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-icon style="margin-right: 15px" *ngIf="!password"
+      >check_circle_outline</mat-icon
+    >
+    <mat-icon style="margin-right: 15px" *ngIf="password"
+      >check_circle</mat-icon
+    >
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="enter password"
+        required
+        [(ngModel)]="password"
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-icon style="margin-right: 15px" *ngIf="!designation"
+      >check_circle_outline</mat-icon
+    >
+    <mat-icon style="margin-right: 15px" *ngIf="designation"
+      >check_circle</mat-icon
+    >
+    <mat-form-field appearance="outline">
+      <mat-select [(ngModel)]="designation" placeholder="Designation" required>
+        <mat-option value="staff">Staff </mat-option>
+        <mat-option value="hod">HOD</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div style="display: flex">
+    <div>
+      <button mat-button class="active-button" (click)="login()">Login</button>
+    </div>
+    <div>
+      <button
+        mat-button
+        style="background: rgb(82, 199, 82); color: #ffffff"
+        (click)="registerUser()"
+      >
+        Register
+      </button>
+    </div>
+  </div>
+</div>

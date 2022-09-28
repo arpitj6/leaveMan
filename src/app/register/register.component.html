@@ -1,0 +1,93 @@
+<div class="df ai" style="padding-left: 16px; background-color: #f0f3f6">
+  <div>Register {{ data }}</div>
+
+  <button
+    mat-icon-button
+    (click)="close()"
+    style="margin-left: auto"
+    tabindex="-1"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+<div class="main-container">
+  <div *ngIf="data == 'staff'" class="form">
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+
+        <input matInput placeholder="Name" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Contact</mat-label>
+        <input matInput placeholder="Contact" required type="number" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div *ngIf="data == 'hod'" class="form">
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+
+        <input matInput placeholder="Name" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Contact</mat-label>
+        <input matInput placeholder="Contact" required type="number" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Department</mat-label>
+        <mat-select [(ngModel)]="dept">
+          <mat-option *ngFor="let item of departments" [value]="item">{{
+            item
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter password" required type="password" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div>
+  <button
+    mat-raised-button
+    style="background: rgb(82, 199, 82); color: #ffffff; width: 28vw"
+    (click)="register()"
+  >
+    Register
+  </button>
+</div>

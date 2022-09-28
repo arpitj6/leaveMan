@@ -1,0 +1,158 @@
+<div>
+  <p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon">
+        <mat-icon [matMenuTriggerFor]="topMenu">menu</mat-icon>
+      </button>
+      <span>Staff & Leave Management System</span>
+      <span class="example-spacer"></span>
+      Welcome {{ user
+      }}<mat-icon
+        [matMenuTriggerFor]="menu"
+        style="cursor: pointer"
+        (click)="$event.stopPropagation()"
+        >keyboard_arrow_down</mat-icon
+      >
+    </mat-toolbar>
+  </p>
+</div>
+<div>
+  <mat-tab-group mat-stretch-tabs (selectedTabChange)="tabChanged()">
+    <mat-tab label="Dashboard">
+      <div class="dashboard">
+        <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
+          Total Staff Members: <span style="color: grey">10</span>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Leave Management">
+      <div style="display: flex">
+        <!-- search box -->
+        <div style="justify-content: flex-start; padding-left: 10px">
+          <div class="search">
+            <input
+              [(ngModel)]="searchKey"
+              type="text"
+              style="width: 98%"
+              class="inputSearch"
+              size="35"
+              placeholder="Search Leaves based on reason or status"
+            />
+            <span>
+              <button matSuffix mat-icon-button style="right: 36px">
+                <mat-icon style="color: #8c9ba5; font-size: 20px"
+                  >search</mat-icon
+                >
+              </button>
+            </span>
+          </div>
+        </div>
+        <!-- aply for new button  -->
+        <!-- <div style="margin-left: auto">
+          <button class="active-button" mat-button (click)="apply()">
+            Add
+          </button>
+        </div> -->
+      </div>
+      <div class="list-view">
+        <div class="list-item" style="font-size: 18px">Sno.</div>
+        <div class="list-item" style="font-size: 18px">From_date</div>
+        <div class="list-item" style="font-size: 18px">To_date</div>
+        <div class="list-item" style="font-size: 18px">Reason</div>
+        <div class="list-item" style="font-size: 18px">Status</div>
+        <div class="list-item" style="font-size: 18px">Action</div>
+      </div>
+      <div
+        class="item-view"
+        *ngFor="let item of filteredLeaves | searchFilter: searchKey"
+      >
+        <div class="list-item">{{ item.sNo }}</div>
+        <div class="list-item">{{ item.from }}</div>
+        <div class="list-item">{{ item.to }}</div>
+        <div class="list-item">{{ item.reason }}</div>
+        <div class="list-item">{{ item.status }}</div>
+        <div
+          class="list-item"
+          matTooltip="view"
+          (click)="viewDetails('leave', item)"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
+        </div>
+      </div>
+      <mat-paginator
+        [length]="leavesData.length"
+        [pageSize]="5"
+        (page)="pageEvent = $event; onPaginateChange($event, 'leave')"
+      >
+      </mat-paginator>
+    </mat-tab>
+    <mat-tab label="Staff Management">
+      <div style="display: flex">
+        <!-- search box -->
+        <div style="justify-content: flex-start; padding-left: 10px">
+          <div class="search">
+            <input
+              [(ngModel)]="searchKey"
+              type="text"
+              style="width: 98%"
+              class="inputSearch"
+              size="35"
+              placeholder="Search staff based on Name"
+            />
+            <span>
+              <button matSuffix mat-icon-button style="right: 36px">
+                <mat-icon style="color: #8c9ba5; font-size: 20px"
+                  >search</mat-icon
+                >
+              </button>
+            </span>
+          </div>
+        </div>
+        <!-- aply for new button  -->
+        <div style="margin-left: auto">
+          <button class="active-button" mat-button (click)="apply()">
+            Add
+          </button>
+        </div>
+      </div>
+      <div class="list-view">
+        <div class="list-item-staff" style="font-size: 18px">Name.</div>
+        <div class="list-item-staff" style="font-size: 18px">Username</div>
+        <div class="list-item-staff" style="font-size: 18px">Email</div>
+        <div class="list-item-staff" style="font-size: 18px">Mobile</div>
+        <div class="list-item-staff" style="font-size: 18px">Action</div>
+      </div>
+      <div
+        class="item-view"
+        *ngFor="
+          let item of filteredUsers | searchUser: searchKey;
+          let index = index
+        "
+      >
+        <div class="list-item-staff">{{ item.name }}</div>
+        <div class="list-item-staff">{{ item.username }}</div>
+        <div class="list-item-staff">{{ item.email }}</div>
+        <div class="list-item-staff">{{ item.mobile }}</div>
+        <div class="list-item-staff">
+          <mat-icon [matMenuTriggerFor]="actionMenu">more_vert</mat-icon>
+        </div>
+        <mat-menu #actionMenu="matMenu">
+          <div mat-menu-item (click)="viewDetails('member', item)">view</div>
+          <div mat-menu-item (click)="viewDetails('delete', item)">delete</div>
+        </mat-menu>
+      </div>
+      <mat-paginator
+        [length]="userData.length"
+        [pageSize]="5"
+        (page)="pageEvent = $event; onPaginateChange($event, 'staff')"
+      >
+      </mat-paginator>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<mat-menu #menu="matMenu">
+  <div mat-menu-item (click)="logOut()">Logout</div>
+</mat-menu>
+<mat-menu #topMenu="matMenu">
+  <div mat-menu-item (click)="logOut()">goBack</div>
+</mat-menu>

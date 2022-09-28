@@ -1,0 +1,69 @@
+<div class="df ai" style="padding-left: 16px; background-color: #f0f3f6">
+  <div>Add {{ data == "staff" ? "Leave" : "Member" }}</div>
+
+  <button
+    mat-icon-button
+    (click)="close()"
+    style="margin-left: auto"
+    tabindex="-1"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+<div class="main-container">
+  <div *ngIf="data == 'staff'" class="wrapper">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>From Date</mat-label>
+        <input matInput type="text" placeholder="Enter from date" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>To Date</mat-label>
+        <input matInput type="text" placeholder="Enter To date" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Reason</mat-label>
+        <input matInput type="text" placeholder="Reason" required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div *ngIf="data == 'hod'" class="wrapper">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" placeholder="Enter Name" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" placeholder="username" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" placeholder="Email" required />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput type="text" placeholder="Mobile" required />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div>
+  <button
+    mat-button
+    style="width: 28vw; background-color: #0086da; color: white"
+    (click)="add()"
+  >
+    Add
+  </button>
+</div>

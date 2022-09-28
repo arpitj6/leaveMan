@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+}
+.main-container {
+  position: relative;
+  padding: 10px;
+  height: 75vh;
+  width: 25vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.df {
+  display: flex;
+}
+.ai {
+  align-items: center;
+}
+::ng-deep .mat-dialog-container {
+  padding: 0px !important;
+  overflow: hidden;
+  border-radius: 4px;
+}
+::ng-deep .mat-form-field {
+  width: 250px;
+}
+
