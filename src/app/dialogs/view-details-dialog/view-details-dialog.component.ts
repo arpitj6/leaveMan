@@ -11,7 +11,10 @@ export class ViewDetailsDialogComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<AddDetailsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {
+    console.log(data);
+    
+  }
 
   ngOnInit(): void {}
   close() {

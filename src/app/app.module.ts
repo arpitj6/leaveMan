@@ -28,6 +28,8 @@ import { SearchFilterPipe } from './search-filter.pipe';
 import { SearchUserPipe } from './search-user.pipe';
 import { AddDetailsDialogComponent } from './dialogs/add-details-dialog/add-details-dialog.component';
 import { ViewDetailsDialogComponent } from './dialogs/view-details-dialog/view-details-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,7 @@ import { ViewDetailsDialogComponent } from './dialogs/view-details-dialog/view-d
     MatMenuModule,
     MatTooltipModule,
     MatPaginatorModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

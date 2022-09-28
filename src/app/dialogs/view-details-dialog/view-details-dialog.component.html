@@ -65,11 +65,14 @@
       </div>
     </div>
   </div>
-  <div *ngIf="data.action == 'delete'">
+  <div *ngIf="data.action == 'delete' && data.actionFor == 'hod'">
     are you sure you want to delete {{ data.data.name }} ?
   </div>
 </div>
-<div style="padding: 10px; justify-content: center; display: flex">
+<div
+  *ngIf="data.action == 'delete' && data.actionFor == 'hod'"
+  style="padding: 10px; justify-content: center; display: flex"
+>
   <button mat-button style="background: red; color: white" (click)="delete()">
     Confirm
   </button>

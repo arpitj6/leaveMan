@@ -1,0 +1,139 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Arpit",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 2,
+      "name": "karan",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 3,
+      "name": "yash",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 4,
+      "name": "Rishabh",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 5,
+      "name": "Shivam",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 6,
+      "name": "Prerit",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 7,
+      "name": "Rohan",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 8,
+      "name": "Sonu",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 9,
+      "name": "Kaku",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 10,
+      "name": "Mannu",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 11,
+      "name": "Shravan",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    },
+    {
+      "id": 12,
+      "name": "Goldy",
+      "username": "arpitj6",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985"
+    }
+  ],
+  "leaves": [
+    {
+      "id": 1,
+      "from": "01/02/2022",
+      "to": "02/02/2022",
+      "reason": "Sick",
+      "status": "Approved"
+    },
+    {
+      "id": 2,
+      "from": "01/02/2022",
+      "to": "04/02/2022",
+      "reason": "Sick",
+      "status": "Rejected"
+    },
+    {
+      "id": 3,
+      "from": "01/02/2022",
+      "to": "02/02/2022",
+      "reason": "family function",
+      "status": "Pending"
+    },
+    {
+      "id": 4,
+      "from": "01/02/2022",
+      "to": "07/02/2022",
+      "reason": "Vacation",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "from": "01/02/2022",
+      "to": "01/02/2022",
+      "reason": "Sick",
+      "status": "Approved"
+    },
+    {
+      "id": 6,
+      "from": "01/02/2022",
+      "to": "01/02/2022",
+      "reason": "not well",
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "from": "01/02/2022",
+      "to": "01/02/2022",
+      "reason": "not well",
+      "status": "Pending"
+    }
+  ]
+}

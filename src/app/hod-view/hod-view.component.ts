@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddDetailsDialogComponent } from '../dialogs/add-details-dialog/add-details-dialog.component';
 import { ViewDetailsDialogComponent } from '../dialogs/view-details-dialog/view-details-dialog.component';
+import { MockService } from '../services/mock.service';
 
 @Component({
   selector: 'app-hod-view',
@@ -11,29 +12,35 @@ import { ViewDetailsDialogComponent } from '../dialogs/view-details-dialog/view-
 })
 export class HodViewComponent implements OnInit {
   public leavesData: any = JSON.parse(JSON.stringify(leaves));
-  public userData: any = JSON.parse(JSON.stringify(users));
+  // public userData: any = JSON.parse(JSON.stringify(users));
+
   public searchKey: any;
   public user: any;
   public filteredUsers: any = [];
   public filteredLeaves: any = [];
   public pageEvent: any;
+  public mockData: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private service: MockService
   ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe((res) => {
       this.user = res['data'];
     });
-    this.filteredUsers = this.userData.slice(0, 5);
     this.filteredLeaves = this.leavesData.slice(0, 5);
+    this.service.getUserData().subscribe((res) => {
+      this.mockData = res;
+      this.filteredUsers = this.mockData.slice(0, 5);
+    });
   }
   onPaginateChange(data: any, action: any) {
     if (action == 'staff') {
-      this.filteredUsers = this.userData.slice(
+      this.filteredUsers = this.mockData.slice(
         data.pageIndex * data.pageSize,
         data.pageIndex * data.pageSize + data.pageSize
       );
@@ -74,49 +81,49 @@ export class HodViewComponent implements OnInit {
 }
 const leaves = [
   {
-    sNo: 1,
+    id: 1,
     from: '01/02/2022',
     to: '02/02/2022',
     reason: 'Sick',
     status: 'Approved',
   },
   {
-    sNo: 2,
+    id: 2,
     from: '01/02/2022',
     to: '04/02/2022',
     reason: 'Sick',
     status: 'Rejected',
   },
   {
-    sNo: 3,
+    id: 3,
     from: '01/02/2022',
     to: '02/02/2022',
     reason: 'family function',
     status: 'Pending',
   },
   {
-    sNo: 4,
+    id: 4,
     from: '01/02/2022',
     to: '07/02/2022',
     reason: 'Vacation',
     status: 'Pending',
   },
   {
-    sNo: 5,
+    id: 5,
     from: '01/02/2022',
     to: '01/02/2022',
     reason: 'Sick',
     status: 'Approved',
   },
   {
-    sNo: 6,
+    id: 6,
     from: '01/02/2022',
     to: '01/02/2022',
     reason: 'not well',
     status: 'pending',
   },
   {
-    sNo: 7,
+    id: 7,
     from: '01/02/2022',
     to: '01/02/2022',
     reason: 'not well',
