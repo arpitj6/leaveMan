@@ -15,19 +15,37 @@
     <div>
       <mat-form-field appearance="outline">
         <mat-label>From Date</mat-label>
-        <input matInput type="text" placeholder="Enter from date" required />
+        <input
+          matInput
+          type="text"
+          placeholder="Enter from date"
+          [(ngModel)]="leaveObj.from"
+          required
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
         <mat-label>To Date</mat-label>
-        <input matInput type="text" placeholder="Enter To date" required />
+        <input
+          matInput
+          type="text"
+          placeholder="Enter To date"
+          required
+          [(ngModel)]="leaveObj.to"
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Reason</mat-label>
-        <input matInput type="text" placeholder="Reason" required />
+        <input
+          matInput
+          type="text"
+          placeholder="Reason"
+          required
+          [(ngModel)]="leaveObj.reason"
+        />
       </mat-form-field>
     </div>
   </div>
@@ -35,19 +53,37 @@
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input matInput type="text" placeholder="Enter Name" required />
+        <input
+          matInput
+          type="text"
+          placeholder="Enter Name"
+          required
+          [(ngModel)]="userObj.name"
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
-        <input matInput type="text" placeholder="username" required />
+        <input
+          matInput
+          type="text"
+          placeholder="username"
+          required
+          [(ngModel)]="userObj.username"
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input matInput type="text" placeholder="Email" required />
+        <input
+          matInput
+          type="text"
+          placeholder="Email"
+          required
+          [(ngModel)]="userObj.email"
+        />
       </mat-form-field>
     </div>
     <div>

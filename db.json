@@ -8,16 +8,9 @@
       "mobile": "9999851985"
     },
     {
-      "id": 2,
-      "name": "karan",
-      "username": "arpitj6",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
-    },
-    {
       "id": 3,
       "name": "yash",
-      "username": "arpitj6",
+      "username": "yash",
       "email": "arpitj6@gmail.com",
       "mobile": "9999851985"
     },
@@ -29,43 +22,8 @@
       "mobile": "9999851985"
     },
     {
-      "id": 5,
-      "name": "Shivam",
-      "username": "arpitj6",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
-    },
-    {
-      "id": 6,
-      "name": "Prerit",
-      "username": "arpitj6",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
-    },
-    {
-      "id": 7,
-      "name": "Rohan",
-      "username": "arpitj6",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
-    },
-    {
-      "id": 8,
-      "name": "Sonu",
-      "username": "arpitj6",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
-    },
-    {
       "id": 9,
       "name": "Kaku",
-      "username": "arpitj6",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
-    },
-    {
-      "id": 10,
-      "name": "Mannu",
       "username": "arpitj6",
       "email": "arpitj6@gmail.com",
       "mobile": "9999851985"
@@ -83,6 +41,20 @@
       "username": "arpitj6",
       "email": "arpitj6@gmail.com",
       "mobile": "9999851985"
+    },
+    {
+      "name": "007",
+      "username": "jamesBond",
+      "email": "jb@007",
+      "mobile": null,
+      "id": 13
+    },
+    {
+      "name": "newman",
+      "username": "newman",
+      "email": "newman@hah",
+      "mobile": 8698789,
+      "id": 16
     }
   ],
   "leaves": [
@@ -134,6 +106,35 @@
       "to": "01/02/2022",
       "reason": "not well",
       "status": "Pending"
+    }
+  ],
+  "hods": [
+    {
+      "id": 1,
+      "name": "arpit",
+      "username": "arpit",
+      "email": "arpitj6@gmail.com",
+      "mobile": "9999851985",
+      "dept": "Physics",
+      "password": "arpit"
+    },
+    {
+      "name": "yash",
+      "username": "yash",
+      "email": "yash@hahah",
+      "mobile": 8768,
+      "dept": "Chem",
+      "password": "yash",
+      "id": 2
+    },
+    {
+      "name": "shivam",
+      "username": "shivam",
+      "email": "shivam@hah",
+      "mobile": 987989,
+      "dept": "Chem",
+      "password": "shivam",
+      "id": 3
     }
   ]
 }

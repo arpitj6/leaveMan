@@ -29,21 +29,12 @@ import { SearchUserPipe } from './search-user.pipe';
 import { AddDetailsDialogComponent } from './dialogs/add-details-dialog/add-details-dialog.component';
 import { ViewDetailsDialogComponent } from './dialogs/view-details-dialog/view-details-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginViewComponent,
-    RegisterComponent,
-    SearchFilterPipe,
-    SearchUserPipe,
-    AddDetailsDialogComponent,
-    ViewDetailsDialogComponent,
-  ],
+  declarations: [SearchFilterPipe,SearchUserPipe],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    CommonModule,
     FormsModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -63,7 +54,28 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  exports: [
+    CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatProgressBarModule,
+    MatTabsModule,
+    MatIconModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    SearchFilterPipe,
+    SearchUserPipe
+  ],
 })
-export class AppModule {}
+export class sharedModule {}

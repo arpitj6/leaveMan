@@ -8,8 +8,22 @@ import { StaffViewComponent } from './staff-view/staff-view.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginViewComponent },
-  { path: 'staff', component: StaffViewComponent, canActivate: [AuthGuard] },
-  { path: 'hod', component: HodViewComponent, canActivate: [AuthGuard] },
+  {
+    path: 'staff',
+    loadComponent: () =>
+      import('./staff-view/staff-view.component').then(
+        (mod) => mod.StaffViewComponent
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'hod',
+    loadComponent: () =>
+      import('./hod-view/hod-view.component').then(
+        (mod) => mod.HodViewComponent
+      ),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

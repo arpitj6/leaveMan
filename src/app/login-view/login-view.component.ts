@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { AuthService } from '../services/auth.service';
+import { MockService } from '../services/mock.service';
 
 @Component({
   selector: 'app-login-view',
@@ -19,7 +20,8 @@ export class LoginViewComponent implements OnInit {
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
     private _router: Router,
-    private service: AuthService
+    private service: AuthService,
+    private mService: MockService
   ) {}
 
   ngOnInit(): void {}
@@ -28,6 +30,7 @@ export class LoginViewComponent implements OnInit {
     if (this.validate()) {
       this.service.username$.next(this.username);
       this.service.password$.next(this.password);
+      this.service.designation$.next(this.designation);
 
       if (this.designation == 'staff') {
         this._router.navigate(['staff'], {

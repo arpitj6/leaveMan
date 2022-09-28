@@ -17,11 +17,11 @@
   </p>
 </div>
 <div>
-  <mat-tab-group mat-stretch-tabs (selectedTabChange)="tabChanged()">
+  <mat-tab-group mat-stretch-tabs (selectedTabChange)="tabChanged($event)">
     <mat-tab label="Dashboard">
       <div class="dashboard">
         <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
-          Total Staff Members: <span style="color: grey">10</span>
+          Total Staff Members: <span style="color: grey">{{ userCount }}</span>
         </div>
       </div>
     </mat-tab>
@@ -110,7 +110,7 @@
         </div>
         <!-- aply for new button  -->
         <div style="margin-left: auto">
-          <button class="active-button" mat-button (click)="apply()">
+          <button class="active-button" mat-button (click)="apply('addStaff')">
             Add
           </button>
         </div>
@@ -142,7 +142,7 @@
         </mat-menu>
       </div>
       <mat-paginator
-        [length]="mockData?.length"
+        [length]="userData?.length"
         [pageSize]="5"
         (page)="pageEvent = $event; onPaginateChange($event, 'staff')"
       >
