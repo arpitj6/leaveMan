@@ -19,13 +19,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from './register/register.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { HodViewComponent } from './hod-view/hod-view.component';
-import { StaffViewComponent } from './staff-view/staff-view.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { SearchFilterPipe } from './search-filter.pipe';
-import { SearchUserPipe } from './search-user.pipe';
 import { AddDetailsDialogComponent } from './dialogs/add-details-dialog/add-details-dialog.component';
 import { ViewDetailsDialogComponent } from './dialogs/view-details-dialog/view-details-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,8 +31,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginViewComponent,
     RegisterComponent,
-    SearchFilterPipe,
-    SearchUserPipe,
     AddDetailsDialogComponent,
     ViewDetailsDialogComponent,
   ],

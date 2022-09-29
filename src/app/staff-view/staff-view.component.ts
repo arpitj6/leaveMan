@@ -30,9 +30,11 @@ export class StaffViewComponent implements OnInit {
     this.route.queryParams.subscribe((res) => {
       this.user = res['data'];
     });
-    this.service.getLeaveData().subscribe((res) => {
-      this.leavesData = res;
-      this.filteredLeaves = this.leavesData.slice(0, 5);
+    this.service.getLeaveData().subscribe((res: any) => {
+      if (res) {
+        this.leavesData = res;
+        this.filteredLeaves = this.leavesData.slice(0, 5);
+      }
     });
   }
   onPaginateChange(data: any) {

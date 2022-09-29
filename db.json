@@ -1,60 +1,76 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Arpit",
-      "username": "arpitj6",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
-    },
-    {
       "id": 3,
       "name": "yash",
       "username": "yash",
       "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
+      "mobile": "9999851985",
+      "dept": "Chem",
+      "password": "yash"
     },
     {
       "id": 4,
       "name": "Rishabh",
-      "username": "arpitj6",
+      "username": "Rishabh",
       "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
+      "mobile": "9999851985",
+      "dept": "Chem",
+      "password": "Rishabh"
     },
     {
       "id": 9,
       "name": "Kaku",
-      "username": "arpitj6",
+      "username": "Kaku",
       "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
+      "mobile": "9999851985",
+      "dept": "Chem",
+      "password": "Kaku"
     },
     {
       "id": 11,
       "name": "Shravan",
-      "username": "arpitj6",
+      "username": "Shravan",
       "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
+      "mobile": "9999851985",
+      "dept": "Chem",
+      "password": "Shravan"
     },
     {
       "id": 12,
       "name": "Goldy",
-      "username": "arpitj6",
+      "username": "Goldy",
       "email": "arpitj6@gmail.com",
-      "mobile": "9999851985"
+      "mobile": "9999851985",
+      "dept": "Chem",
+      "password": "Goldy"
     },
     {
       "name": "007",
       "username": "jamesBond",
       "email": "jb@007",
       "mobile": null,
-      "id": 13
+      "id": 13,
+      "dept": "Chem",
+      "password": "jamesBond"
     },
     {
       "name": "newman",
       "username": "newman",
       "email": "newman@hah",
       "mobile": 8698789,
-      "id": 16
+      "id": 16,
+      "dept": "Chem",
+      "password": "newman"
+    },
+    {
+      "name": "aa",
+      "username": "sss",
+      "email": "gg",
+      "mobile": 999,
+      "dept": "Chem",
+      "password": "sss",
+      "id": 17
     }
   ],
   "leaves": [
@@ -135,6 +151,15 @@
       "dept": "Chem",
       "password": "shivam",
       "id": 3
+    },
+    {
+      "name": "newHod",
+      "username": "newHod",
+      "email": "hod",
+      "mobile": 987789,
+      "dept": "Bio",
+      "password": "newHod",
+      "id": 4
     }
   ]
 }

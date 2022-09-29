@@ -58,31 +58,69 @@
         />
       </mat-form-field>
     </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Department</mat-label>
+        <mat-select [(ngModel)]="staffObj.dept">
+          <mat-option *ngFor="let item of departments" [value]="item">{{
+            item
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Enter password"
+          required
+          type="password"
+          [(ngModel)]="staffObj.password"
+        />
+      </mat-form-field>
+    </div>
   </div>
   <div *ngIf="data == 'hod'" class="form">
     <div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Name</mat-label>
 
-        <input matInput placeholder="Name" required [(ngModel)]="hodObj.name"/>
+        <input matInput placeholder="Name" required [(ngModel)]="hodObj.name" />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" required [(ngModel)]="hodObj.username"/>
+        <input
+          matInput
+          placeholder="Username"
+          required
+          [(ngModel)]="hodObj.username"
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" required [(ngModel)]="hodObj.email"/>
+        <input
+          matInput
+          placeholder="Email"
+          required
+          [(ngModel)]="hodObj.email"
+        />
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Contact</mat-label>
-        <input matInput placeholder="Contact" required type="number" [(ngModel)]="hodObj.mobile"/>
+        <input
+          matInput
+          placeholder="Contact"
+          required
+          type="number"
+          [(ngModel)]="hodObj.mobile"
+        />
       </mat-form-field>
     </div>
     <div>
@@ -98,7 +136,13 @@
     <div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Password</mat-label>
-        <input matInput placeholder="Enter password" required type="password" [(ngModel)]="hodObj.password"/>
+        <input
+          matInput
+          placeholder="Enter password"
+          required
+          type="password"
+          [(ngModel)]="hodObj.password"
+        />
       </mat-form-field>
     </div>
   </div>

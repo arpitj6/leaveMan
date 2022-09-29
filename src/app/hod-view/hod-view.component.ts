@@ -39,7 +39,7 @@ export class HodViewComponent implements OnInit {
       })
     );
     this.Subscription$.add(
-      this.service.getUserData().subscribe((res) => {
+      this.service.getUserData().subscribe((res: any) => {
         this.userData = res;
         this.userCount = this.userData?.length;
       })
@@ -78,7 +78,7 @@ export class HodViewComponent implements OnInit {
   tabChanged(event: any) {
     if (event.index == 2) {
       this.Subscription$.add(
-        this.service.getUserData().subscribe((res) => {
+        this.service.getUserData().subscribe((res: any) => {
           this.userData = res;
           this.filteredUsers = this.userData.slice(0, 5);
         })
@@ -86,7 +86,7 @@ export class HodViewComponent implements OnInit {
     }
     if (event.index == 1) {
       this.Subscription$.add(
-        this.service.getLeaveData().subscribe((res) => {
+        this.service.getLeaveData().subscribe((res: any) => {
           this.leavesData = res;
           this.filteredLeaves = this.leavesData.slice(0, 5);
         })
