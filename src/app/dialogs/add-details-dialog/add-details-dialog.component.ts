@@ -15,6 +15,7 @@ export class AddDetailsDialogComponent implements OnInit {
   leaveObj = JSON.parse(JSON.stringify(leave));
   public departments = ['Phy', 'Chem', 'Bio'];
   public userData: any;
+  public currentUser: any;
 
   constructor(
     private dialogRef: MatDialogRef<AddDetailsDialogComponent>,
@@ -27,6 +28,11 @@ export class AddDetailsDialogComponent implements OnInit {
     this.service.getUserData().subscribe((res: any) => {
       if (res) {
         this.userData = res;
+        this.currentUser = this.userData.filter(
+          (item: any) => item.username == this.data.username
+        );
+        console.log(this.currentUser);
+        
       }
     });
   }
@@ -49,6 +55,12 @@ export class AddDetailsDialogComponent implements OnInit {
       }
       if (!this.leaveObj.reason) {
         this.snackBar.open('Please enter reason to proceed', 'OK', {
+          duration: 2000,
+        });
+        return false;
+      }
+      if (this.currentUser[0].availableLeaves < 1) {
+        this.snackBar.open('You Dont have enough leaves to Apply!', 'OK', {
           duration: 2000,
         });
         return false;
@@ -118,9 +130,12 @@ export class AddDetailsDialogComponent implements OnInit {
     if (this.data.action == 'staff') {
       if (this.validate()) {
         this.leaveObj.username = this.data.username;
+        this.leaveObj.status = 'Pending';
         this.Subscription$.add(
           this.service.addLeave(this.leaveObj).subscribe((res: any) => {
             if (res) {
+              this.currentUser[0].availableLeaves -= 1;
+              this.service.changeUserData(this.currentUser[0]).subscribe();
               this.dialogRef.close(this.leaveObj);
             }
           })

@@ -1,22 +1,14 @@
 {
   "users": [
     {
-      "id": 3,
-      "name": "yash",
-      "username": "yash",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985",
-      "dept": "Chem",
-      "password": "yash"
-    },
-    {
       "id": 4,
       "name": "Rishabh",
       "username": "Rishabh",
       "email": "arpitj6@gmail.com",
       "mobile": "9999851985",
       "dept": "Chem",
-      "password": "Rishabh"
+      "password": "Rishabh",
+      "availableLeaves": 3
     },
     {
       "id": 9,
@@ -25,16 +17,8 @@
       "email": "arpitj6@gmail.com",
       "mobile": "9999851985",
       "dept": "Chem",
-      "password": "Kaku"
-    },
-    {
-      "id": 11,
-      "name": "Shravan",
-      "username": "Shravan",
-      "email": "arpitj6@gmail.com",
-      "mobile": "9999851985",
-      "dept": "Chem",
-      "password": "Shravan"
+      "password": "Kaku",
+      "availableLeaves": 5
     },
     {
       "id": 12,
@@ -43,7 +27,8 @@
       "email": "arpitj6@gmail.com",
       "mobile": "9999851985",
       "dept": "Chem",
-      "password": "Goldy"
+      "password": "Goldy",
+      "availableLeaves": 5
     },
     {
       "name": "007",
@@ -52,7 +37,8 @@
       "mobile": null,
       "id": 13,
       "dept": "Chem",
-      "password": "jamesBond"
+      "password": "jamesBond",
+      "availableLeaves": 5
     },
     {
       "name": "newman",
@@ -61,50 +47,28 @@
       "mobile": 8698789,
       "id": 16,
       "dept": "Chem",
-      "password": "newman"
+      "password": "newman",
+      "availableLeaves": 5
     },
     {
-      "name": "aa",
-      "username": "sss",
-      "email": "gg",
-      "mobile": 999,
-      "dept": "Chem",
-      "password": "sss",
-      "id": 17
+      "name": "Shravan",
+      "username": "Shravan",
+      "email": "shravan@haha.com",
+      "mobile": 987879099,
+      "dept": "Phy",
+      "password": "Shravan",
+      "id": 17,
+      "availableLeaves": 0
     }
   ],
   "leaves": [
-    {
-      "id": 1,
-      "from": "01/02/2022",
-      "to": "02/02/2022",
-      "reason": "Sick",
-      "status": "Approved",
-      "username": "yash"
-    },
     {
       "id": 2,
       "from": "01/02/2022",
       "to": "04/02/2022",
       "reason": "Sick",
-      "status": "Rejected",
+      "status": "Approved",
       "username": "Rishabh"
-    },
-    {
-      "id": 3,
-      "from": "01/02/2022",
-      "to": "02/02/2022",
-      "reason": "family function",
-      "status": "Pending",
-      "username": "Shravan"
-    },
-    {
-      "id": 4,
-      "from": "01/02/2022",
-      "to": "07/02/2022",
-      "reason": "Vacation",
-      "status": "Pending",
-      "username": "yash"
     },
     {
       "id": 5,
@@ -113,14 +77,6 @@
       "reason": "Sick",
       "status": "Approved",
       "username": "Rishabh"
-    },
-    {
-      "id": 6,
-      "from": "01/02/2022",
-      "to": "01/02/2022",
-      "reason": "not well",
-      "status": "pending",
-      "username": "yash"
     },
     {
       "id": 7,
@@ -135,7 +91,63 @@
       "to": "02/02/2022",
       "reason": "xyz",
       "username": "yash",
-      "id": 8
+      "id": 8,
+      "status": "Pending"
+    },
+    {
+      "from": "02/02/2022",
+      "to": "02/03.2022",
+      "reason": "function",
+      "username": "Shravan",
+      "id": 9
+    },
+    {
+      "from": "01/02/2023",
+      "to": "01/02/2024",
+      "reason": "foreign",
+      "username": "Shravan",
+      "status": "Pending",
+      "id": 10
+    },
+    {
+      "from": "10/10/2023",
+      "to": "11/10/2023",
+      "reason": "abcdef",
+      "username": "Shravan",
+      "status": "Pending",
+      "id": 11
+    },
+    {
+      "from": "21",
+      "to": "23",
+      "reason": "qwertyui",
+      "username": "Shravan",
+      "status": "Pending",
+      "id": 12
+    },
+    {
+      "from": "09/09/2020",
+      "to": "09/09/2020",
+      "reason": "fever",
+      "username": "Shravan",
+      "status": "Pending",
+      "id": 13
+    },
+    {
+      "from": "12/12/9090",
+      "to": "12/12/9090",
+      "reason": "reasons",
+      "username": "Shravan",
+      "status": "Pending",
+      "id": 14
+    },
+    {
+      "from": "asdf",
+      "to": "dfg",
+      "reason": "dfg",
+      "username": "Shravan",
+      "status": "Pending",
+      "id": 15
     }
   ],
   "hods": [
@@ -145,35 +157,17 @@
       "username": "arpit",
       "email": "arpitj6@gmail.com",
       "mobile": "9999851985",
-      "dept": "Physics",
+      "dept": "Phy",
       "password": "arpit"
     },
     {
-      "name": "yash",
-      "username": "yash",
-      "email": "yash@hahah",
-      "mobile": 8768,
+      "id": 2,
+      "name": "admin",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "mobile": "9090909090",
       "dept": "Chem",
-      "password": "yash",
-      "id": 2
-    },
-    {
-      "name": "shivam",
-      "username": "shivam",
-      "email": "shivam@hah",
-      "mobile": 987989,
-      "dept": "Chem",
-      "password": "shivam",
-      "id": 3
-    },
-    {
-      "name": "newHod",
-      "username": "newHod",
-      "email": "hod",
-      "mobile": 987789,
-      "dept": "Bio",
-      "password": "newHod",
-      "id": 4
+      "password": "arpit"
     }
   ]
 }

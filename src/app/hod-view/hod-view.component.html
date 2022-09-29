@@ -2,7 +2,7 @@
   <p>
     <mat-toolbar color="primary">
       <button mat-icon-button class="example-icon">
-        <mat-icon [matMenuTriggerFor]="topMenu">menu</mat-icon>
+        <mat-icon (click)="logOut()">arrow_back_ios</mat-icon>
       </button>
       <span>Staff & Leave Management System</span>
       <span class="example-spacer"></span>
@@ -56,6 +56,7 @@
       </div>
       <div class="list-view">
         <div class="list-item" style="font-size: 18px">Sno.</div>
+        <div class="list-item" style="font-size: 18px">Username</div>
         <div class="list-item" style="font-size: 18px">From_date</div>
         <div class="list-item" style="font-size: 18px">To_date</div>
         <div class="list-item" style="font-size: 18px">Reason</div>
@@ -67,17 +68,33 @@
         *ngFor="let item of filteredLeaves | searchFilter: searchKey"
       >
         <div class="list-item">{{ item.id }}</div>
+        <div class="list-item">{{ item.username }}</div>
         <div class="list-item">{{ item.from }}</div>
         <div class="list-item">{{ item.to }}</div>
         <div class="list-item">{{ item.reason }}</div>
         <div class="list-item">{{ item.status }}</div>
-        <div
-          class="list-item"
-          matTooltip="view"
-          (click)="viewDetails('leave', item)"
-        >
-          <mat-icon>remove_red_eye</mat-icon>
+        <div class="list-item">
+          <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
         </div>
+        <mat-menu #menu="matMenu">
+          <div mat-menu-item (click)="viewDetails('viewLeave', item)">
+            View <mat-icon>remove_red_eye</mat-icon>
+          </div>
+          <div
+            *ngIf="item.status == 'Pending'"
+            mat-menu-item
+            (click)="leaveAction('Approved', item)"
+          >
+            Approve <mat-icon>done_all</mat-icon>
+          </div>
+          <div
+            *ngIf="item.status == 'Pending'"
+            mat-menu-item
+            (click)="leaveAction('Rejected', item)"
+          >
+            Reject <mat-icon>cancel</mat-icon>
+          </div>
+        </mat-menu>
       </div>
       <mat-paginator
         [length]="leavesData.length"
@@ -152,7 +169,4 @@
 </div>
 <mat-menu #menu="matMenu">
   <div mat-menu-item (click)="logOut()">Logout</div>
-</mat-menu>
-<mat-menu #topMenu="matMenu">
-  <div mat-menu-item (click)="logOut()">goBack</div>
 </mat-menu>

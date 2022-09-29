@@ -23,6 +23,11 @@ export class MockService {
     let path = `http://localhost:3000/users/${id}`;
     return this.service.callMethod('delete', null, path);
   }
+
+  public deleteLeave(id: any) {
+    let path = `http://localhost:3000/leaves/${id}`;
+    return this.service.callMethod('delete', null, path);
+  }
   public addUser(user: any) {
     let path = `http://localhost:3000/users/`;
     return this.service.callMethod('post', user, path);
@@ -40,5 +45,13 @@ export class MockService {
   public addHod(hod: any) {
     let path = `http://localhost:3000/hods`;
     return this.service.callMethod('post', hod, path);
+  }
+  public changeLeaveData(leave: any) {
+    let path = `http://localhost:3000/leaves/${leave?.id}`;
+    return this.service.callMethod('put', leave, path);
+  }
+  public changeUserData(user: any) {
+    let path = `http://localhost:3000/users/${user?.id}`;
+    return this.service.callMethod('put', user, path);
   }
 }

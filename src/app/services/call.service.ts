@@ -16,6 +16,9 @@ export class CallService {
     if (method == 'post') {
       return this.http.post(path, body, { headers: this.headers });
     }
+    if (method == 'put') {
+      return this.http.put(path, body, { headers: this.headers });
+    }
     if (method == 'delete') {
       return this.http.delete(path);
     }

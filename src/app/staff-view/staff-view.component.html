@@ -2,7 +2,7 @@
   <p>
     <mat-toolbar color="primary">
       <button mat-icon-button class="example-icon">
-        <mat-icon [matMenuTriggerFor]="topMenu">menu</mat-icon>
+        <mat-icon (click)="logOut()">arrow_back_ios</mat-icon>
       </button>
       <span>Staff & Leave Management System</span>
       <span class="example-spacer"></span>
@@ -17,17 +17,16 @@
   </p>
 </div>
 <div>
-  <mat-tab-group mat-stretch-tabs>
+  <mat-tab-group mat-stretch-tabs (selectedTabChange)="tabChange($event)">
     <mat-tab label="Dashboard">
       <div class="dashboard">
         <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
-          Total Leaves: <span style="color: grey">10</span>
+          Total Leaves: <span style="color: grey">5</span>
         </div>
         <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
-          Approved :<span style="color: grey">5</span>
-        </div>
-        <div class="pc fw" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1)">
-          Rejected : <span style="color: grey">5</span>
+          Available Leaves :<span style="color: grey">{{
+            currentUser ? currentUser[0].availableLeaves : "NA"
+          }}</span>
         </div>
       </div>
     </mat-tab>
@@ -97,7 +96,4 @@
 </div>
 <mat-menu #menu="matMenu">
   <div mat-menu-item (click)="logOut()">Logout</div>
-</mat-menu>
-<mat-menu #topMenu="matMenu">
-  <div mat-menu-item (click)="logOut()">goBack</div>
 </mat-menu>

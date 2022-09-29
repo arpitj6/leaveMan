@@ -20,6 +20,7 @@ export class StaffViewComponent implements OnInit {
   public filteredLeaves: any = [];
   public specificLeavesData: any;
   public pageEvent: any;
+  public currentUser: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -30,7 +31,12 @@ export class StaffViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((res) => {
       this.user = res['data'];
+      console.log(this.user);
     });
+    this.getUserLeaveData();
+  }
+
+  getUserLeaveData() {
     this.service.getLeaveData().subscribe((res: any) => {
       if (res) {
         this.leavesData = res;
@@ -41,6 +47,7 @@ export class StaffViewComponent implements OnInit {
       }
     });
   }
+
   onPaginateChange(data: any) {
     this.filteredLeaves = this.specificLeavesData.slice(
       data.pageIndex * data.pageSize,
@@ -58,9 +65,21 @@ export class StaffViewComponent implements OnInit {
     });
     d.afterClosed().subscribe((res) => {
       if (res) {
-        this.specificLeavesData.push(res);
+        this.filteredLeaves.push(res);
       }
     });
+  }
+  tabChange(event: any) {
+    if (event.index == 0) {
+      this.service.getUserData().subscribe((res: any) => {
+        if (res) {
+          let userData = res;
+          this.currentUser = userData.filter(
+            (item: any) => item.username == this.user
+          );
+        }
+      });
+    }
   }
 
   logOut() {

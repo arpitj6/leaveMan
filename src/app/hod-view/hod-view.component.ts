@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddDetailsDialogComponent } from '../dialogs/add-details-dialog/add-details-dialog.component';
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [sharedModule],
 })
-export class HodViewComponent implements OnInit {
+export class HodViewComponent implements OnInit, OnDestroy {
   public Subscription$: Subscription = new Subscription();
   public leavesData: any = [];
   public userData: any = [];
@@ -42,6 +42,22 @@ export class HodViewComponent implements OnInit {
       this.service.getUserData().subscribe((res: any) => {
         this.userData = res;
         this.userCount = this.userData?.length;
+      })
+    );
+  }
+  leaveAction(action: any, leave: any) {
+    action == 'Approved'
+      ? (leave.status = 'Approved')
+      : (leave.status = 'Rejected');
+
+    this.Subscription$.add(
+      this.service.changeLeaveData(leave).subscribe((res: any) => {
+        if (res) {
+          let index = this.filteredLeaves.findIndex(
+            (item: any) => item.id == leave.id
+          );
+          this.filteredLeaves[index] = leave;
+        }
       })
     );
   }
@@ -120,7 +136,11 @@ export class HodViewComponent implements OnInit {
       }
     });
   }
+  ngOnDestroy() {
+    this.Subscription$.unsubscribe();
+  }
 }
+
 // const leaves = [
 //   {
 //     id: 1,

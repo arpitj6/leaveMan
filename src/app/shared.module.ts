@@ -12,7 +12,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
-import { LoginViewComponent } from './login-view/login-view.component';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -32,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [SearchFilterPipe,SearchUserPipe],
+  declarations: [SearchFilterPipe, SearchUserPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -53,6 +52,7 @@ import { CommonModule } from '@angular/common';
     MatTooltipModule,
     MatPaginatorModule,
     HttpClientModule,
+    
   ],
   exports: [
     CommonModule,
@@ -75,7 +75,7 @@ import { CommonModule } from '@angular/common';
     MatPaginatorModule,
     HttpClientModule,
     SearchFilterPipe,
-    SearchUserPipe
+    SearchUserPipe,
   ],
 })
 export class sharedModule {}

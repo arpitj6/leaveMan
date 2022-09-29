@@ -26,6 +26,7 @@ export class ViewDetailsDialogComponent implements OnInit, OnDestroy {
     this.Subscription$.add(
       this.service.deleteUser(this.data.data.id).subscribe((res: any) => {
         if (res) {
+          // this.service.deleteLeave(this.data.data.id).subscribe();
           this.dialogRef.close(this.data.data.id);
         }
       })
