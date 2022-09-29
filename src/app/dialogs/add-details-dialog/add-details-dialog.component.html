@@ -1,5 +1,5 @@
 <div class="df ai" style="padding-left: 16px; background-color: #f0f3f6">
-  <div>Add {{ data == "staff" ? "Leave" : "Member" }}</div>
+  <div>Add {{ data.action == "staff" ? "Leave" : "Member" }}</div>
 
   <button
     mat-icon-button
@@ -11,7 +11,7 @@
   </button>
 </div>
 <div class="main-container">
-  <div *ngIf="data == 'staff'" class="wrapper">
+  <div *ngIf="data.action == 'staff'" class="wrapper">
     <div>
       <mat-form-field appearance="outline">
         <mat-label>From Date</mat-label>
@@ -49,7 +49,7 @@
       </mat-form-field>
     </div>
   </div>
-  <div *ngIf="data == 'hod'" class="wrapper">
+  <div *ngIf="data.action == 'hod'" class="wrapper">
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>

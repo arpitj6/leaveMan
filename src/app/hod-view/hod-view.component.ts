@@ -63,7 +63,10 @@ export class HodViewComponent implements OnInit {
     const d = this.dialog.open(AddDetailsDialogComponent, {
       maxHeight: '100vh',
       maxWidth: '100vw',
-      data: 'hod',
+      data: {
+        action: 'hod',
+        username: this.user,
+      },
     });
     d.afterClosed().subscribe((res) => {
       if (res) {

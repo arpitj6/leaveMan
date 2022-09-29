@@ -34,7 +34,7 @@ export class AddDetailsDialogComponent implements OnInit {
     this.dialogRef.close();
   }
   validate() {
-    if (this.data == 'staff') {
+    if (this.data.action == 'staff') {
       if (!this.leaveObj.from) {
         this.snackBar.open('Please enter from date to proceed', 'OK', {
           duration: 2000,
@@ -55,7 +55,7 @@ export class AddDetailsDialogComponent implements OnInit {
       }
       return true;
     }
-    if ((this.data = 'hod')) {
+    if ((this.data.action = 'hod')) {
       if (!this.userObj.name) {
         this.snackBar.open('Please enter name to proceed', 'OK', {
           duration: 2000,
@@ -114,8 +114,10 @@ export class AddDetailsDialogComponent implements OnInit {
     return true;
   }
   add() {
-    if (this.data == 'staff') {
+    // apply leave
+    if (this.data.action == 'staff') {
       if (this.validate()) {
+        this.leaveObj.username = this.data.username;
         this.Subscription$.add(
           this.service.addLeave(this.leaveObj).subscribe((res: any) => {
             if (res) {
@@ -124,9 +126,9 @@ export class AddDetailsDialogComponent implements OnInit {
           })
         );
       }
-      // apply leave here
     }
-    if (this.data == 'hod') {
+    // add member
+    if (this.data.action == 'hod') {
       if (this.validate()) {
         this.Subscription$.add(
           this.service.addUser(this.userObj).subscribe((res: any) => {
@@ -152,4 +154,5 @@ const leave = {
   from: null,
   to: null,
   reason: null,
+  username: null,
 };

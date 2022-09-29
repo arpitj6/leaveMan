@@ -18,6 +18,7 @@ export class StaffViewComponent implements OnInit {
   public searchKey: any;
   public user: any;
   public filteredLeaves: any = [];
+  public specificLeavesData: any;
   public pageEvent: any;
   constructor(
     private route: ActivatedRoute,
@@ -33,12 +34,15 @@ export class StaffViewComponent implements OnInit {
     this.service.getLeaveData().subscribe((res: any) => {
       if (res) {
         this.leavesData = res;
-        this.filteredLeaves = this.leavesData.slice(0, 5);
+        this.specificLeavesData = this.leavesData.filter(
+          (item: any) => item.username == this.user
+        );
+        this.filteredLeaves = this.specificLeavesData.slice(0, 5);
       }
     });
   }
   onPaginateChange(data: any) {
-    this.filteredLeaves = this.leavesData.slice(
+    this.filteredLeaves = this.specificLeavesData.slice(
       data.pageIndex * data.pageSize,
       data.pageIndex * data.pageSize + data.pageSize
     );
@@ -47,11 +51,14 @@ export class StaffViewComponent implements OnInit {
     const d = this.dialog.open(AddDetailsDialogComponent, {
       maxHeight: '100vh',
       maxWidth: '100vw',
-      data: action,
+      data: {
+        action: action,
+        username: this.user,
+      },
     });
     d.afterClosed().subscribe((res) => {
       if (res) {
-        this.leavesData.push(res);
+        this.specificLeavesData.push(res);
       }
     });
   }
