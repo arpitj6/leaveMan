@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CallService } from './call.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,37 +9,36 @@ import { Injectable } from '@angular/core';
 export class MockService {
   public headers = new HttpHeaders().set('content-type', 'application/json');
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private service: CallService) {}
   public getUserData() {
-    return this.http.get('http://localhost:3000/users');
+    let path = `http://localhost:3000/users`;
+    return this.service.callMethod('get', null, path);
   }
   public getLeaveData() {
-    return this.http.get('http://localhost:3000/leaves');
+    let path = `http://localhost:3000/leaves`;
+    return this.service.callMethod('get', null, path);
   }
 
   public deleteUser(id: any) {
-    return this.http.delete(`http://localhost:3000/users/${id}`);
+    let path = `http://localhost:3000/users/${id}`;
+    return this.service.callMethod('delete', null, path);
   }
   public addUser(user: any) {
-    return this.http.post(`http://localhost:3000/users/`, user, {
-      headers: this.headers,
-    });
+    let path = `http://localhost:3000/users/`;
+    return this.service.callMethod('post', user, path);
   }
   public addLeave(leave: any) {
-    return this.http.post(`http://localhost:3000/users/`, leave, {
-      headers: this.headers,
-    });
+    let path = `http://localhost:3000/leaves/`;
+    return this.service.callMethod('post', leave, path);
   }
 
   public getHodData() {
-    return this.http.get('http://localhost:3000/hods');
+    let path = `http://localhost:3000/hods`;
+    return this.service.callMethod('get', null, path);
   }
 
   public addHod(hod: any) {
-    return this.http.post(`http://localhost:3000/hods`, hod, {
-      headers: this.headers,
-    });
+    let path = `http://localhost:3000/hods`;
+    return this.service.callMethod('post', hod, path);
   }
-}
-{
 }

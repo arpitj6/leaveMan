@@ -24,10 +24,10 @@ export class AuthGuard implements CanActivate {
     private router: Router,
     private mService: MockService
   ) {
-    this.mService.getUserData().subscribe((res) => {
+    this.mService.getUserData().subscribe((res: any) => {
       this.userData = res;
     });
-    this.mService.getHodData().subscribe((res) => {
+    this.mService.getHodData().subscribe((res: any) => {
       this.hodData = res;
     });
   }
@@ -46,14 +46,17 @@ export class AuthGuard implements CanActivate {
     if (this.username) {
       let isUserPresent = false;
       if (this.designation == 'staff') {
-        this.userData.map((item: any) => {
-          if (item.username == this.username) {
+        this.userData?.map((item: any) => {
+          if (
+            item.username == this.username &&
+            item.password == this.password
+          ) {
             isUserPresent = true;
           }
         });
       }
       if (this.designation == 'hod') {
-        this.hodData.map((item: any) => {
+        this.hodData?.map((item: any) => {
           if (
             item.username == this.username &&
             item.password == this.password
