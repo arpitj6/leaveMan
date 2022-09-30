@@ -13,27 +13,19 @@
 <div class="main-container">
   <div *ngIf="data.action == 'staff'" class="wrapper">
     <div>
-      <mat-form-field appearance="outline">
-        <mat-label>From Date</mat-label>
-        <input
-          matInput
-          type="text"
-          placeholder="Enter from date (dd-MM-YYYY)"
-          [(ngModel)]="leaveObj.from"
-          required
-        />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>To Date</mat-label>
-        <input
-          matInput
-          type="text"
-          placeholder="Enter To date (dd-MM-YYYY)"
-          required
-          [(ngModel)]="leaveObj.to"
-        />
+      <mat-form-field>
+        <mat-label>Select From - To Date:</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input
+            matStartDate
+            placeholder="From Date"
+            [(ngModel)]="leaveObj.from"
+          />
+          <input matEndDate placeholder="To Date" [(ngModel)]="leaveObj.to" />
+        </mat-date-range-input>
+
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
     </div>
     <div>
@@ -89,7 +81,13 @@
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Mobile</mat-label>
-        <input matInput type="text" placeholder="Mobile" required [(ngModel)]="userObj.mobile"/>
+        <input
+          matInput
+          type="text"
+          placeholder="Mobile"
+          required
+          [(ngModel)]="userObj.mobile"
+        />
       </mat-form-field>
     </div>
     <div>

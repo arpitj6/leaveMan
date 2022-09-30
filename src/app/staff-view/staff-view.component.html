@@ -72,8 +72,8 @@
         *ngFor="let item of filteredLeaves | searchFilter: searchKey"
       >
         <div class="list-item">{{ item.id }}</div>
-        <div class="list-item">{{ item.from }}</div>
-        <div class="list-item">{{ item.to }}</div>
+        <div class="list-item">{{ item.from | date: "dd-MM-YYYY" }}</div>
+        <div class="list-item">{{ item.to | date: "dd-MM-YYYY" }}</div>
         <div class="list-item">{{ item.reason }}</div>
         <div class="list-item">{{ item.status ? item.status : "NA" }}</div>
         <div

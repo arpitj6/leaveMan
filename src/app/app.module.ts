@@ -25,6 +25,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { AddDetailsDialogComponent } from './dialogs/add-details-dialog/add-details-dialog.component';
 import { ViewDetailsDialogComponent } from './dialogs/view-details-dialog/view-details-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTooltipModule,
     MatPaginatorModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

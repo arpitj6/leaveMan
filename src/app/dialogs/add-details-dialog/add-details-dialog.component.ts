@@ -31,8 +31,6 @@ export class AddDetailsDialogComponent implements OnInit {
         this.currentUser = this.userData.filter(
           (item: any) => item.username == this.data.username
         );
-        console.log(this.currentUser);
-        
       }
     });
   }

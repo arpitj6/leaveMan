@@ -69,8 +69,8 @@
       >
         <div class="list-item">{{ item.id }}</div>
         <div class="list-item">{{ item.username }}</div>
-        <div class="list-item">{{ item.from }}</div>
-        <div class="list-item">{{ item.to }}</div>
+        <div class="list-item">{{ item.from | date: "dd-MM-YYYY" }}</div>
+        <div class="list-item">{{ item.to | date: "dd-MM-YYYY" }}</div>
         <div class="list-item">{{ item.reason }}</div>
         <div class="list-item">{{ item.status }}</div>
         <div class="list-item">

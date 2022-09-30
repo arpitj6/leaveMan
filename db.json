@@ -58,7 +58,7 @@
       "dept": "Phy",
       "password": "Shravan",
       "id": 17,
-      "availableLeaves": 0
+      "availableLeaves": 1
     }
   ],
   "leaves": [
@@ -130,7 +130,7 @@
       "to": "09/09/2020",
       "reason": "fever",
       "username": "Shravan",
-      "status": "Pending",
+      "status": "Approved",
       "id": 13
     },
     {
@@ -138,16 +138,17 @@
       "to": "12/12/9090",
       "reason": "reasons",
       "username": "Shravan",
-      "status": "Pending",
+      "status": "Approved",
       "id": 14
     },
+
     {
-      "from": "asdf",
-      "to": "dfg",
-      "reason": "dfg",
+      "from": "2022-08-31T18:30:00.000Z",
+      "to": "2022-09-08T18:30:00.000Z",
+      "reason": "fever",
       "username": "Shravan",
       "status": "Pending",
-      "id": 15
+      "id": 16
     }
   ],
   "hods": [
